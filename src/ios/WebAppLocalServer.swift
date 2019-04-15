@@ -82,7 +82,7 @@ open class WebAppLocalServer: METPlugin, AssetBundleManagerDelegate {
 
     wwwDirectoryURL = Bundle.main.resourceURL!.appendingPathComponent("www")
 
-    initializeAssetBundles()
+    // initializeAssetBundles()
 
     // The WebAppLocalServerPort setting is currently only used for testing
     if let portString = (commandDelegate?.settings["WebAppLocalServerPort".lowercased()] as? String),
@@ -406,7 +406,7 @@ open class WebAppLocalServer: METPlugin, AssetBundleManagerDelegate {
     if !isTesting, let viewController = self.viewController as? CDVViewController {
       // Do not modify startPage if we are testing the app using
       // cordova-plugin-test-framework
-      viewController.startPage = "http://localhost:\(localServerPort)?\(authTokenKeyValuePair)"
+      viewController.startPage = "http://localhost:\(localServerPort)index.html?\(authTokenKeyValuePair)"
     }
   }
 
